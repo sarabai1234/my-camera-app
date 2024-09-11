@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera and Microphone Access</title>
+</head>
+<body>
+    <h1>Allow Camera and Microphone Access</h1>
+    <button onclick="getMedia()">Grant Access</button>
+
+    <script>
+        function getMedia() {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+                .then(stream => {
+                    console.log('Access granted:', stream);
+                    alert('Camera and microphone access granted!');
+                })
+                .catch(err => {
+                    console.error('Error:', err);
+                    alert('Access denied or error occurred.');
+                });
+        }
+    </script>
+</body>
+</html>
